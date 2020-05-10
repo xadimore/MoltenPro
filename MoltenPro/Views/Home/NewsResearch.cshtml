@@ -1,0 +1,359 @@
+﻿@{
+    ViewBag.cm = ViewBag.CurrentmarketData;
+    ViewBag.Deals = ViewBag.Deals;
+    ViewBag.value = ViewBag.Value;
+    ViewBag.EquityCap = ViewBag.EquityCap;
+    ViewBag.BondCap = ViewBag.BondCap;
+    ViewBag.ETFCap = ViewBag.EFTCap;
+}
+
+
+@{
+    ViewData["Title"] = "News & Research";
+}
+
+
+<link rel="stylesheet" href="~/css/site.css" />
+<div class="row mt-5">
+    <div class="col-lg-8 mt-1">
+        <h6><i class="fas fa-newspaper text-info pr-2 h5"></i>TOP READS</h6>
+        <div class="row">
+            @foreach (var item in ViewBag.MarketNews)
+            {
+                <div class="col-lg-4">
+                    <img class="img-fluid" src="~/Images/NewsImages/@item.Image" />
+                    <p class="mt-3 mb-0"><a class="mt-2 mb-1 text-dark" href="@item.url"> @item.description</a></p>
+                    <small class="mt-0">@item.Date</small>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <div class="col-lg-4 mt-1">
+        <h6><i class="fas fa-newspaper text-info pr-2 h5"></i>LATEST NEWS</h6>
+
+
+        @foreach (var item in ViewBag.LatestNews)
+        {
+            <div class="col-lg-12 mb-4">
+                <a class="mt-2 mb-0 text-dark" href="@item.url">@item.description</a>
+                <div><small class="mt-0">@item.Date</small></div>
+
+            </div>
+        }
+
+
+        <a asp-action="MarketNews" asp-controller="Home" class="lead font-weight-bold ">
+            SEE ALL NEWS <i class="fas fa-long-arrow-alt-right text-info pl-2"></i>
+        </a>
+    </div>
+</div>
+@{int i = 1;}
+<section>
+    <div class="container mt-5" style="width: 100vw">
+        <div class="row">
+            <div class="col-lg-6 mb-5">
+                <h5 class="h2">Best performers</h5>
+                <p class="text-primary newp">The top 5 equities with the highest increase in price</p>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr class="text-primary" style="font-size: 10px; line-height: 0.7rem; font-weight:700">
+                            <th scope="col"> # </th>
+                            <th scope="col">STOCK</th>
+                            <th scope="col">PRICE</th>
+                            <th scope="col" class="text-right">24H CHANGE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.Bp)
+                        {
+                            <tr class="text-dark" style="font-size: 14px; line-height:20px; font-weight: 600;">
+                                <td>@(i++)</td>
+                                <td class="text-capitalize"><img src="/Images/@item.Symbol@ViewBag.jpg" class="rounded-circle" style="width: 30px; height: 30px;" />&nbsp &nbsp @item.Symbol</td>
+                                <td>@item.Close</td>
+                                <td class="text-success text-right">+@item.Change</td>
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="col-lg-6">
+                <h5 class="h2">Worst performers</h5>
+                <p class="text-primary newp">The top 5 equities with the highest decrease in price.</p>
+
+                <table class="table table-borderless">
+                    <thead>
+                        <tr class="text-primary" style="font-size: 10px; line-height: 0.7rem; font-weight:700">
+                            <th scope="col"> # </th>
+                            <th scope="col">STOCK</th>
+                            <th scope="col">PRICE</th>
+                            <th scope="col" class="text-right">24H CHANGE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.wp)
+                        {
+                            <tr class="text-dark" style="font-size: 14px; line-height:20px; font-weight: 600;">
+                                <td>@(i++)</td>
+                                <td class="text-capitalize"><img src="/Images/@item.Symbol@ViewBag.jpg" class="rounded-circle" style="width: 30px; height: 30px;" />&nbsp &nbsp @item.Symbol</td>
+                                <td>@item.Close</td>
+                                <td class="text-danger text-right">@item.Change</td>
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="mt-5"><h6><i class=" fas fa-rss-square h5 text-info pr-2"></i>UPCOMING MARKET EVENTS</h6></div>
+<div class="row mt-2">
+    <div class="col-lg-4">
+        <div class="card bg-light border-white">
+            <div class="card-body ">
+                <h4 class="card-title text-primary">Earnings<i class="fas fa-long-arrow-alt-right pl-5" style="width: 100px;"></i></h4>
+                <h6 class="card-subtitle mb-2 text-muted">1000 EVENTS</h6>
+                @foreach (var item in ViewBag.Earnings)
+                {
+                    <div class="row py-2" style="font-size: 0.9rem">
+                        <div class="col-8">
+                            @item.CompanyName
+                        </div>
+                        <div class="col-4">
+                            @item.Date.ToShortDateString()
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card bg-light border-white">
+            <div class="card-body ">
+                <h4 class="card-title text-primary">Dividends<i class="fas fa-long-arrow-alt-right pl-5" style="width: 100px;"></i></h4>
+                <h6 class="card-subtitle mb-2 text-muted">900 EVENTS</h6>
+
+                @foreach (var item in ViewBag.Dividends)
+                {
+                    <div class="row py-2" style="font-size: 0.9rem">
+                        <div class="col-8">
+                            @item.CompanyName
+                        </div>
+                        <div class="col-4">
+                            @item.Date.ToShortDateString()
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card bg-light border-white">
+            <div class="card-body ">
+                <h4 class="card-title text-primary">Stock Splits<i class="fas fa-long-arrow-alt-right pl-5" style="width: 100px;"></i></h4>
+                <h6 class="card-subtitle mb-2 text-muted">900 EVENTS</h6>
+                @foreach (var item in ViewBag.Dividends)
+                {
+                    <div class="row py-2" style="font-size: 0.9rem">
+                        <div class="col-8">
+                            @item.CompanyName
+                        </div>
+                        <div class="col-4">
+                            @item.Date.ToShortDateString()
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<div class=" bg-white row mt-5 ">
+    <div class="col-lg-8 shadow-sm border">
+        <h3 class="text-black-50 pt-1">
+            NSE <span class="lead">Market Indices</span>
+        </h3>
+
+        <hr class="hr" />
+        <div class="row">
+            <div class="col-lg-2 col-sm-3">
+                <p class="display-4">ASI</p>
+            </div>
+            <div class="row">
+                <div class="col-1 text-right p-0 m-0 ">
+                    <i class="fas fa-long-arrow-alt-up text-success display-4 m-0 "></i>
+                </div>
+                <div class="col pt-2">
+                    <div class="row">
+                        <div class="col">8717.98</div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-success">+83.46 0.97%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="min-height: 300px;"></div>
+        <div class="row p-3">
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-1 text-right p-0 m-0">
+                        <i class="fas fa-long-arrow-alt-up text-success display-4 m-0 "></i>
+                    </div>
+                    <div class="col pt-2">
+                        <div class="row">
+                            <div class="col">Banking</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">8717.98</div>
+                        </div>
+                        <div class="row ">
+                            <div class="col text-success">+83.46 0.97%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-1 text-right p-0 m-0">
+                        <i class="fas fa-long-arrow-alt-up text-success display-4 m-0 "></i>
+                    </div>
+                    <div class="col pt-2">
+                        <div class="row">
+                            <div class="col">Banking</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">8717.98</div>
+                        </div>
+                        <div class="row ">
+                            <div class="col text-success">+83.46 0.97%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-1 text-right p-0 m-0">
+                        <i class="fas fa-long-arrow-alt-up text-success display-4 m-0 "></i>
+                    </div>
+                    <div class="col pt-2">
+                        <div class="row">
+                            <div class="col">Banking</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">8717.98</div>
+                        </div>
+                        <div class="row ">
+                            <div class="col text-success">+83.46 0.97%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-1 text-right p-0 m-0">
+                        <i class="fas fa-long-arrow-alt-up text-success display-4 m-0 "></i>
+                    </div>
+                    <div class="col pt-2">
+                        <div class="row">
+                            <div class="col">Banking</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">8717.98</div>
+                        </div>
+                        <div class="row ">
+                            <div class="col text-success">+83.46 0.97%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-4 mt-sm-3">
+        <div class="row ">
+            <div class="col">
+                <h6><i class="fas fa-chart-line text-info pr-2 h5"></i>MOST ACTIVE STOCK BY VOLUME</h6>
+            </div>
+        </div>
+
+        <div class="row pl-3">
+            @foreach (var item in ViewBag.ActiveStocks)
+            {
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-1 text-right p-0 m-0">
+                            @if (item.Change > 0)
+                            {
+                                <i class="fas fa-long-arrow-alt-up text-success display-4 m-0 "></i>
+                            }
+                            else if (item.Change < 0)
+                            {
+                                <i class="fas fa-long-arrow-alt-down text-danger display-4 m-0 "></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-long-arrow-alt-up text-info display-4 m-0 "></i>
+                            }
+                        </div>
+                        <div class="col pt-2">
+                            <div class="row">
+                                <div class="col">@item.Symbol</div>
+                            </div>
+                            <div class="row">
+                                <div class="col">@item.Close</div>
+                            </div>
+                            <div class="row ">
+                                @if (item.Change > 0)
+                                {
+                                    <div class="col text-success">@item.Change &nbsp  @String.Format("{0:0.00}", item.PercentageChange)%</div>
+                                }
+                                else if (item.Change < 0)
+                                {
+                                    <div class="col text-danger">@item.Change &nbsp  @String.Format("{0:0.00}", item.PercentageChange)%</div>
+                                }
+
+                                else
+                                {
+                                    <div class="col text-info">@item.Change &nbsp  @String.Format("{0:0.00}", item.PercentageChange)%</div>
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+
+
+</div>

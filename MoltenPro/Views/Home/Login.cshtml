@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+<link rel="stylesheet" href="~/css/site.css" />
+<div class="container" style="width: 70%">
+    <section class="auth-section login-section text-center py-5">
+        <div class="container">
+            <a class="navbar-brand p-3 mb-3" href="#">Molten<span class="" style="font-weight: 300">Pro</span></a>
+
+            <div class="auth-wrapper mx-auto shadow p-5 rounded">
+
+                <h2 class="auth-heading text-center mb-5">Log Into Your Account</h2>
+
+                <div class="social-auth text-center mx-auto">
+                    <ul class="social-buttons list-unstyled">
+                        <li class="mb-3">
+                            <a href="#" class="btn bg-white border btn-block p-2">
+                                <span class="mr-2"><img src="~/Images/icons8-google-128.png" width="20" /></span><span>Sign in with Google</span>
+                                @*<span class="icon-holder"><img src="assets/images/social/google-logo.svg" alt=""></span>
+                                    <span class="btn-text text-center">Sign in with Google</span>*@
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="btn bg-white border btn-block p-2">
+                                <span class="mr-2"><img src="~/Images/icons8-facebook-128.png" width="25" /></span><span>Sign in with Facebook</span>
+
+                            </a>
+                        </li>
+
+                    </ul>
+                </div><!--//social-auth-->
+
+                <div class="divider my-5">
+                    <span class="or-text">OR</span>
+                </div><!--//divider-->
+
+                <div class="auth-form-container text-left mx-auto">
+                    <form class="auth-form login-form">
+                        <div class="form-group email">
+                            <label class="sr-only" for="signin-email">Email</label>
+                            <input id="signin-email" name="signin-email" type="email" class="form-control signin-email" placeholder="Email address" required="required">
+                        </div><!--//form-group-->
+                        <div class="form-group password">
+                            <label class="sr-only" for="signin-password">Password</label>
+                            <input id="signin-password" name="signin-password" type="password" class="form-control signin-password" placeholder="Password" required="required">
+                            <div class="extra mt-3 row justify-content-between">
+                                <div class="col-6">
+                                    <div class="checkbox remember">
+                                        <label>
+                                            <input type="checkbox">  Remember me
+                                        </label>
+                                    </div><!--//check-box-->
+                                </div><!--//col-6-->
+                                <div class="col-6">
+                                    <div class="forgot-password text-lg-right">
+                                        <a href="password.html">Forgot password?</a>
+                                    </div>
+                                </div><!--//col-6-->
+                            </div><!--//extra-->
+                        </div><!--//form-group-->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-block theme-btn mx-auto">Log In</button>
+                        </div>
+                    </form>
+
+                    <div class="auth-option text-center pt-5">No Account? Sign Up <a href="signup.html">Here</a>.</div>
+                </div><!--//auth-form-container-->
+
+            </div><!--//auth-wrapper-->
+        </div><!--//container-->
+    </section><!--//auth-section-->
+</div>

@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MoltenTrustLimited</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom box-shadow mb-3 p-3">
+            <a class="navbar-brand" asp-action="Index" asp-controller="Home">Molten<span class="" style="font-weight: 300">Pro</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor03">
+
+                <ul class="social-list list-inline mt-3 mt-lg-0 mb-lg-0 d-none d-xl-flex ml-lg-3 mr-lg-3 ">
+                    <li class="list-inline-item bg-light"><a href="#"><i class="fab fa-facebook fa-fw"></i></a></li>
+                    <li class="list-inline-item bg-light"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
+                    <li class="list-inline-item bg-light"><a href="#"><i class="fab fa-slack fa-fw"></i></a></li>
+                    <li class="list-inline-item bg-light"><a href="#"><i class="fab fa-instagram fa-fw"></i></a></li>
+                </ul><!--//social-list-->
+
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active mr-lg-4 font-weight-bold">
+                        <a class="nav-link" asp-action="AboutUs" asp-controller="Home">About Us <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item mr-lg-4 font-weight-bold">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item mr-lg-4 font-weight-bold">
+                        <a class="nav-link" asp-action="download" asp-controller="Home">Downloads</a>
+                    </li>
+                    <li class="nav-item mr-lg-4 font-weight-bold">
+
+                        <a class="nav-link" asp-action="NewsResearch" asp-controller="Home">News & Research</a>
+                    </li>
+                    <li class="nav-item mr-lg-4 font-weight-bold">
+                        <a class="nav-link" asp-action="Contactus" asp-controller="Home">Contact Us</a>
+                    </li>
+                    <li class="nav-item mr-lg-4 font-weight-bold">
+                        <a class="nav-link" asp-action="Login" asp-controller="Home">Login</a>
+                    </li>
+                </ul>
+
+                <a class="btn btn-lg py-2 px-3 text-white" asp-action="SignUp" asp-controller="Home">SignUp</a>
+                @*<form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </form>*@
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <div style="margin-top: 100px;"></div>
+
+
+    <section class="cta-section text-center py-5 theme-bg-dark position-relative" style="background-color:#4550E6">
+        <div class="theme-bg-shapes-right"></div>
+        <div class="theme-bg-shapes-left"></div>
+        <div class="container">
+            <h3 class="mb-2 text-white mb-3">When the market swings, learn how to swing back</h3>
+            <div class="section-intro text-white mb-3 single-col-max mx-auto">Collaborate with a dedicated advisor who will work with you and for you, providing clear recommendations designed to help you grow and protect your wealth.</div>
+            <div class="pt-3 text-center">
+                <a class="btn btn-light bg-white" href="#">Get Started<i class="fas fa-arrow-alt-circle-right ml-2"></i></a>
+            </div>
+        </div>
+    </section><!--//cta-section-->
+
+
+
+    <footer class="footer">
+        <div class="container py-5 mb-3">
+            <div class="row">
+                <div class="footer-col col-6 col-lg-3">
+                    <h4 class="col-heading">Quick Link</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-black-50">Client Login </a></li>
+                        <li><a href="#" class="text-black-50">Open New Account</a></li>
+                        <li><a href="#" class="text-black-50">Online Trading</a></li>
+                        <li><a href="#" class="text-black-50">Guest Access</a></li>
+                        <li><a href="#" class="text-black-50">Dividend Tracker</a></li>
+                        <li><a href="#" class="text-black-50">Why Smartrade?</a></li>
+                        <li><a href="#" class="text-black-50">FAQ</a></li>
+
+                    </ul>
+                </div><!--//footer-col-->
+                <div class="footer-col col-6 col-lg-3">
+                    <h4 class="col-heading">Our Services</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-black-50">Securities Trading</a></li>
+                        <li><a href="#" class="text-black-50">Shares Transmission</a></li>
+                        <li><a href="#" class="text-black-50">Registrar Services</a></li>
+                        <li><a href="#" class="text-black-50">Investment Research</a></li>
+                        <li><a href="#" class="text-black-50">NASD - OTC Market</a></li>
+                    </ul>
+                </div><!--//footer-col-->
+                <div class="footer-col col-6 col-lg-3">
+                    <h4 class="col-heading">Resources</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-black-50">Form Library</a></li>
+                        <li><a href="#" class="text-black-50">Funding & Transfers</a></li>
+                        <li><a href="#" class="text-black-50">Feedback</a></li>
+                        <li><a href="#" class="text-black-50">Market Report</a></li>
+                        <li><a href="#" class="text-black-50">Community</a></li>
+
+                    </ul>
+                </div><!--//footer-col-->
+                <div class="footer-col col-6 col-lg-3">
+                    <h4 class="col-heading"><a class="navbar-brand" asp-action="Index" asp-controller="Home">Molten<span class="" style="font-weight: 300">Pro</span></a></h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-black-50">About Us</a></li>
+                        <li><a href="#" class="text-black-50">Contact Us</a></li>
+                        <li><a href="#" class="text-black-50">Privacy</a></li>
+                        <li><a href="#" class="text-black-50">Terms of Services</a></li>
+                    </ul>
+
+                </div><!--//footer-col-->
+            </div><!--//row-->
+        </div><!--//container-->
+        <div class="container">
+            <hr>
+        </div>
+        <div class="newsletter-section py-5">
+            <div class="container text-center">
+                <h4 class="mb-2">Join Our Newsletter</h4>
+                <div class="section-intro mb-2">Sign up to receive latest updates, features, and news!</div>
+                <form class="signup-form form-inline justify-content-center pt-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="semail">Email address</label>
+                        <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter email">
+                    </div>
+                    <button type="submit" class="btn text-white">Sign Up</button>
+                </form>
+            </div>
+        </div><!--//newsletter-section-->
+        <div class="footer-bottom text-center pb-5">
+
+            <small class="copyright">Copyright &copy; <a href="https://moltentrust.com/" target="_blank">Molten Trust Limited</a></small>
+            <ul class="social-list list-unstyled pt-4 mb-0">
+
+                <li class="list-inline-item"><a href="www.twitter.com"><i class="fab fa-twitter fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="www.slack.com"><i class="fab fa-slack fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="www.product.com"><i class="fab fa-product-hunt fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="www.facebook.com"><i class="fab fa-facebook-f fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="www.instagram.com"><i class="fab fa-instagram fa-fw"></i></a></li>
+            </ul><!--//social-list-->
+        </div>
+    </footer>
+
+
+    <div id="con">
+        <div class="container-fluid">
+            <div id="cont" class="content">
+
+                <div class="row">
+                    <div class="col-lg-1 ml-5">
+                        <img id="goal" src="~/Images/icons8-plus-50 (2).png" width="32" />
+                    </div>
+                    <div class="col-lg-2 pt-1 ">
+                        <span class="font-weight-bold">
+                            ASI :
+                        </span>   @ViewBag.cm (2.5%)<i class="fas fa-level-up-alt text-success"></i>
+                        <br />
+                        <span class="font-weight-bold">BOND CAP :</span>	₦@ViewBag.BondCap
+                    </div>
+                    <div class="col-lg-2 pt-1">
+                        <span class="font-weight-bold">
+                            DEALS :
+                        </span>   @ViewBag.Deals (4.5%)<i class="fas fa-level-down-alt text-danger"></i>
+                        <br />
+                        <span class="font-weight-bold">ETF CAP	:</span> ₦@ViewBag.ETFCap
+                    </div>
+                    <div class="col-lg-2 pt-1">
+                        <span class="font-weight-bold">VALUE : </span>	 ₦@ViewBag.Value
+                    </div>
+                    <div class="col-lg-2 pt-1">
+                        <span class="font-weight-bold">EQUITY CAP : </span>	₦@ViewBag.EquityCap
+                    </div>
+                    <div class="col-lg-2">
+                        <a class="btn text-white ">Open New Account</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
